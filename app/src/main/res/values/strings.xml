@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MySecondApplication</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="logo">Image logo</string>
+    <string name="welcome_image">welcome image</string>
+    <string name="ready">Готов</string>
+    <string name="have_good_time">Доброго времени суток!</string>
+    <string name="warning_connection">Проверьте интернет соединение!</string>
+    <string name="error_something_wrong">Что то пошло не так. Перезапустите приложение!</string>
+    <string name="news_title">Новости.</string>
+    <string name="news_description">Актуальные новости в мире спорта.</string>
+    <string name="featured">Полезное</string>
+    <string name="look">Смотреть</string>
+</resources>

@@ -1,9 +1,8 @@
-package com.example.mysecondapplication.presentation.screens.training
+package com.example.mysecondapplication.presentation.screens.news
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mysecondapplication.domain.models.Nutrition
-import com.example.mysecondapplication.domain.models.Training
+import com.example.mysecondapplication.domain.models.News
 import com.example.mysecondapplication.domain.use_cases.UseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -15,18 +14,19 @@ import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class TrainingViewModel @Inject constructor(
+class NewsViewModel @Inject constructor(
     useCases: UseCases
-):ViewModel(){
+) : ViewModel() {
 
-    private val _trainingState =
-        MutableStateFlow<List<Training>>(value = Collections.emptyList())
-    val trainingState: StateFlow<List<Training>> = _trainingState
+    private val _newsState =
+        MutableStateFlow<List<News>>(value = Collections.emptyList())
+    val newsState: StateFlow<List<News>> = _newsState
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            useCases.getAllTrainingsUseCase().collect {
-                _trainingState.value = it
+            useCases.loadAllNewsUseCase()
+            useCases.getAllNewsUseCase().collect {
+                _newsState.value = it
             }
         }
     }

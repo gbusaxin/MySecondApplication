@@ -20,7 +20,7 @@ class NutritionViewModel @Inject constructor(
 
     private val _nutritionState =
         MutableStateFlow<List<Nutrition>>(value = Collections.emptyList())
-    val motivationState: StateFlow<List<Nutrition>> = _nutritionState
+    val nutritionState: StateFlow<List<Nutrition>> = _nutritionState
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

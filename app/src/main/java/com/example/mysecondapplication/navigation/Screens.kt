@@ -1,6 +1,7 @@
 package com.example.mysecondapplication.navigation
 
 const val ARGUMENT_RESPONSE_KEY = "server_response"
+const val ARGUMENT_NEWS_DETAIL_KEY = "news_detail"
 
 sealed class Screens(
     val route: String
@@ -14,6 +15,14 @@ sealed class Screens(
     object Chrome : Screens(route = "chrome_screen/{$ARGUMENT_RESPONSE_KEY}") {
         fun passResponse(route: String): String {
             return this.route.replace(oldValue = "{$ARGUMENT_RESPONSE_KEY}", newValue = route)
+        }
+    }
+
+    object News : Screens(route = "news_screen")
+
+    object NewsDetail : Screens(route = "news_screen/{$ARGUMENT_NEWS_DETAIL_KEY}") {
+        fun passDetail(id: Int): String {
+            return this.route.replace(oldValue = "{$ARGUMENT_NEWS_DETAIL_KEY}", newValue = id.toString())
         }
     }
 

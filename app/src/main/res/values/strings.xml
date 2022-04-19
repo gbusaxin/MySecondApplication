@@ -11,4 +11,5 @@
     <string name="news_description">Актуальные новости в мире спорта.</string>
     <string name="featured">Полезное</string>
     <string name="look">Смотреть</string>
+    <string name="get_back">Вернуться назад</string>
 </resources>

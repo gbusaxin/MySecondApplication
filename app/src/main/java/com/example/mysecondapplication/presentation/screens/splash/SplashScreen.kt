@@ -53,10 +53,15 @@ fun SplashScreen(
         when (response) {
             is DataState.Success<String?> -> {
                 Log.d("DataState.SUCCESS", "Success! -> $response")
-                responseSuccess(
+                responseError(
+                    context = context,
                     navController = navController,
-                    response = (response as DataState.Success<String?>).data?.trim()
+                    boardingState = onBoardingState
                 )
+//                responseSuccess(
+//                    navController = navController,
+//                    response = (response as DataState.Success<String?>).data?.trim()
+//                )
             }
             is DataState.Error -> {
                 Log.d("DataState.ERROR", "Error! -> $response")
@@ -79,7 +84,6 @@ fun SplashScreen(
             }
         }
     }
-
     Splash(rotate = rotate.value)
 }
 
@@ -126,6 +130,7 @@ fun responseError(
     navController: NavHostController,
     boardingState: Boolean
 ) {
+    navController.popBackStack()
     if (boardingState) {
         navController.navigate(
             route = Screens.Home.route

@@ -18,4 +18,7 @@ interface ApiService {
 
     @GET("/second_app/let_training.json")
     suspend fun loadTrainings(): List<TrainingDto>
+
+    @GET("/second_app/sport_news.json")
+    suspend fun loadNews(): List<NewsDto>
 }

@@ -12,6 +12,8 @@ import coil.annotation.ExperimentalCoilApi
 import com.example.mysecondapplication.presentation.screens.chrome.ChromeScreen
 import com.example.mysecondapplication.presentation.screens.home.HomeScreen
 import com.example.mysecondapplication.presentation.screens.motivation.MotivationScreen
+import com.example.mysecondapplication.presentation.screens.news.NewsScreen
+import com.example.mysecondapplication.presentation.screens.news.detail.NewsDetailScreen
 import com.example.mysecondapplication.presentation.screens.nutrition.NutritionScreen
 import com.example.mysecondapplication.presentation.screens.splash.SplashScreen
 import com.example.mysecondapplication.presentation.screens.training.TrainingScreen
@@ -68,6 +70,19 @@ fun SetupNavGraph(
             route = Screens.Training.route
         ) {
             TrainingScreen(navController = navController)
+        }
+        composable(
+            route = Screens.News.route
+        ) {
+            NewsScreen(navController = navController)
+        }
+        composable(
+            route = Screens.NewsDetail.route,
+            arguments = listOf(navArgument(ARGUMENT_NEWS_DETAIL_KEY) {
+                type = NavType.IntType
+            })
+        ) {
+            NewsDetailScreen(navController = navController)
         }
     }
 }

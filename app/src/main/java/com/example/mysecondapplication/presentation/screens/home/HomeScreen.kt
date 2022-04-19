@@ -28,10 +28,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.mysecondapplication.R
-import com.example.mysecondapplication.utils.FeaturedItems
+import com.example.mysecondapplication.navigation.Screens
 import com.example.mysecondapplication.presentation.components.GreetingAppBar
 import com.example.mysecondapplication.ui.theme.*
 import com.example.mysecondapplication.utils.Constants.CELLS_COUNT
+import com.example.mysecondapplication.utils.FeaturedItems
 import com.example.mysecondapplication.utils.standardQuadTo
 
 @ExperimentalFoundationApi
@@ -54,7 +55,13 @@ fun HomeScreen(
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             GreetingAppBar()
-            NewsContainer()
+            NewsContainer(
+                onClick = {
+                    navController.navigate(
+                        Screens.News.route
+                    )
+                }
+            )
             FeatureSection(
                 features = features,
                 navController = navController
@@ -66,10 +73,14 @@ fun HomeScreen(
 @Composable
 fun NewsContainer(
     title: String = stringResource(R.string.news_title),
-    description: String = stringResource(R.string.news_description)
+    description: String = stringResource(R.string.news_description),
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
+            .clickable {
+                onClick()
+            }
             .padding(all = MEDIUM_PADDING)
             .clip(RoundedCornerShape(SMALL_CORNER_SHAPE))
             .background(MaterialTheme.colors.cardColor)

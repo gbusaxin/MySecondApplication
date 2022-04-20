@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "motivation_table")
 data class MotivationDbModel(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
     val author: String,
     val image: String,
     val message: String

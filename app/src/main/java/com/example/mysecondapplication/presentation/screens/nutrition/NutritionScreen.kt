@@ -41,7 +41,7 @@ fun NutritionScreen(
         ) {
             items(
                 items = list,
-                key = { nutrition -> nutrition.title }
+                key = { nutrition -> nutrition.id }
             ) {
                 it?.let { nutrition ->
                     FeaturedItemContainer(
@@ -51,7 +51,7 @@ fun NutritionScreen(
                         description = nutrition.shortDesc,
                         lightColor = Blue1,
                         darkColor = Blue2,
-                        route = Screens.Nutrition.route
+                        route = Screens.NutritionDetail.passDetail(it.id)
                     )
                 }
             }

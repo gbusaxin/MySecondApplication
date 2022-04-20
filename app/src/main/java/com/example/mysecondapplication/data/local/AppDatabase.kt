@@ -14,7 +14,7 @@ import com.example.mysecondapplication.data.local.models.TrainingDbModel
         TrainingDbModel::class,
         NewsDbModel::class
     ],
-    version = 3,
+    version = 5,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

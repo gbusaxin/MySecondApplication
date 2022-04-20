@@ -9,6 +9,7 @@ import javax.inject.Inject
 class TrainingMapper @Inject constructor() {
 
     fun mapDbModelToEntity(dbModel: TrainingDbModel) = Training(
+        id = dbModel.id,
         trainer = dbModel.trainer,
         imageTrainer = dbModel.imageTrainer,
         aboutTrainer = dbModel.aboutTrainer,
@@ -16,6 +17,7 @@ class TrainingMapper @Inject constructor() {
     )
 
     fun mapDtoToDbModel(dto: TrainingDto) = TrainingDbModel(
+        id = 0,
         trainer = dto.trainer ?: "",
         imageTrainer = dto.imageTrainer ?: "",
         aboutTrainer = dto.aboutTrainer ?: "",

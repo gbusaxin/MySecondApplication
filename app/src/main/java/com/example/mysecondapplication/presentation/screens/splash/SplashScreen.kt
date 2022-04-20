@@ -53,15 +53,16 @@ fun SplashScreen(
         when (response) {
             is DataState.Success<String?> -> {
                 Log.d("DataState.SUCCESS", "Success! -> $response")
-                responseError(
-                    context = context,
+                /** For debug, response is always "no"
+                 *      responseError(
+                 *      context = context,
+                 *      navController = navController,
+                 *      boardingState = onBoardingState)
+                 */
+                responseSuccess(
                     navController = navController,
-                    boardingState = onBoardingState
+                    response = (response as DataState.Success<String?>).data?.trim()
                 )
-//                responseSuccess(
-//                    navController = navController,
-//                    response = (response as DataState.Success<String?>).data?.trim()
-//                )
             }
             is DataState.Error -> {
                 Log.d("DataState.ERROR", "Error! -> $response")

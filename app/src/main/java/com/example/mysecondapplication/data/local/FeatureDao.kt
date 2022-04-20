@@ -18,8 +18,8 @@ interface FeatureDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllTrainings(list: List<TrainingDbModel>)
 
-    @Query("SELECT * FROM training_table WHERE trainer =:trainer")
-    suspend fun getSelectedTraining(trainer: String): TrainingDbModel
+    @Query("SELECT * FROM training_table WHERE id =:id")
+    suspend fun getSelectedTraining(id: Int): TrainingDbModel
 
     //Motivation operations
     @Query("SELECT * FROM motivation_table")
@@ -28,8 +28,8 @@ interface FeatureDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllMotivations(list: List<MotivationDbModel>)
 
-    @Query("SELECT * FROM motivation_table WHERE author =:author")
-    suspend fun getSelectedMotivation(author: String): MotivationDbModel
+    @Query("SELECT * FROM motivation_table WHERE id =:id")
+    suspend fun getSelectedMotivation(id: Int): MotivationDbModel
 
     //Nutrition operations
     @Query("SELECT * FROM nutrition_table")
@@ -38,7 +38,17 @@ interface FeatureDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllNutrition(list: List<NutritionDbModel>)
 
-    @Query("SELECT * FROM nutrition_table WHERE title =:title")
-    suspend fun getSelectedNutrition(title: String): NutritionDbModel
+    @Query("SELECT * FROM nutrition_table WHERE id =:id")
+    suspend fun getSelectedNutrition(id: Int): NutritionDbModel
+
+    //delete operations
+    @Query("DELETE FROM motivation_table")
+    suspend fun deleteMotivation()
+
+    @Query("DELETE FROM nutrition_table")
+    suspend fun deleteNutrition()
+
+    @Query("DELETE FROM training_table")
+    suspend fun deleteTraining()
 
 }

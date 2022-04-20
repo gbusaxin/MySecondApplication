@@ -10,7 +10,8 @@ import com.example.mysecondapplication.domain.models.TrainingItem
 @Entity(tableName = "training_table")
 @TypeConverters(TrainingConverter::class)
 data class TrainingDbModel(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
     val trainer: String,
     val imageTrainer: String,
     val aboutTrainer: String,

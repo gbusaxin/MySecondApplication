@@ -5,5 +5,5 @@ import com.example.mysecondapplication.data.repository.Repository
 class GetSelectedTrainingUseCase(
     private val repository: Repository
 ) {
-    suspend operator fun invoke(trainer: String) = repository.getSelectedTraining(trainer)
+    suspend operator fun invoke(id: Int) = repository.getSelectedTraining(id)
 }

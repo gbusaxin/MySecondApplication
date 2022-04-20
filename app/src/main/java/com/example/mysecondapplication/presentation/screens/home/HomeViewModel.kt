@@ -16,6 +16,7 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
+            useCases.deleteFeaturedUseCase()
             useCases.loadAllFeaturedUseCase()
         }
     }

@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "nutrition_table")
 data class NutritionDbModel(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
     val title: String,
     val shortDesc: String,
     val backgroundImage: String,

@@ -67,15 +67,19 @@ class Repository @Inject constructor(
         return featuredRepository.getAllNutrition()
     }
 
-    suspend fun getSelectedMotivation(author: String): Motivation {
-        return featuredRepository.getSelectedMotivation(author)
+    suspend fun getSelectedMotivation(id: Int): Motivation {
+        return featuredRepository.getSelectedMotivation(id)
     }
 
-    suspend fun getSelectedTraining(trainer: String): Training {
-        return featuredRepository.getSelectedTraining(trainer)
+    suspend fun getSelectedTraining(id: Int): Training {
+        return featuredRepository.getSelectedTraining(id)
     }
 
-    suspend fun getSelectedNutrition(title: String): Nutrition {
-        return featuredRepository.getSelectedNutrition(title)
+    suspend fun getSelectedNutrition(id: Int): Nutrition {
+        return featuredRepository.getSelectedNutrition(id)
+    }
+
+    suspend fun deleteAllFeatured() {
+        featuredRepository.deleteAllFeatured()
     }
 }

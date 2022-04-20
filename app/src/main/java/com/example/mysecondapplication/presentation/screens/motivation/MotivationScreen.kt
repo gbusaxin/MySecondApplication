@@ -40,7 +40,7 @@ fun MotivationScreen(
         ) {
             items(
                 items = list,
-                key = { motivation -> motivation.author }
+                key = { motivation -> motivation.id }
             ) {
                 it?.let { motivation ->
                     FeaturedItemContainer(
@@ -50,7 +50,7 @@ fun MotivationScreen(
                         description = motivation.message,
                         lightColor = Red1,
                         darkColor = Red2,
-                        route = Screens.Motivation.route
+                        route = Screens.MotivationDetail.passDetail(it.id)
                     )
                 }
             }

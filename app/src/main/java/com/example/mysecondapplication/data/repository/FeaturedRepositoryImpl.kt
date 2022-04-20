@@ -37,8 +37,8 @@ class FeaturedRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getSelectedMotivation(author: String): Motivation {
-        return motivationMapper.mapDbModelToEntity(dao.getSelectedMotivation(author = author))
+    override suspend fun getSelectedMotivation(id: Int): Motivation {
+        return motivationMapper.mapDbModelToEntity(dao.getSelectedMotivation(id = id))
     }
 
     override suspend fun loadAllTrainings() {
@@ -55,8 +55,8 @@ class FeaturedRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getSelectedTraining(trainer: String): Training {
-        return trainingMapper.mapDbModelToEntity(dao.getSelectedTraining(trainer = trainer))
+    override suspend fun getSelectedTraining(id: Int): Training {
+        return trainingMapper.mapDbModelToEntity(dao.getSelectedTraining(id = id))
     }
 
     override suspend fun loadAllNutrition() {
@@ -73,7 +73,15 @@ class FeaturedRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getSelectedNutrition(title: String): Nutrition {
-        return nutritionMapper.mapDbModelToEntity(dao.getSelectedNutrition(title = title))
+    override suspend fun getSelectedNutrition(id: Int): Nutrition {
+        return nutritionMapper.mapDbModelToEntity(dao.getSelectedNutrition(id = id))
+    }
+
+    override suspend fun deleteAllFeatured() {
+        with(dao) {
+            deleteMotivation()
+            deleteNutrition()
+            deleteTraining()
+        }
     }
 }

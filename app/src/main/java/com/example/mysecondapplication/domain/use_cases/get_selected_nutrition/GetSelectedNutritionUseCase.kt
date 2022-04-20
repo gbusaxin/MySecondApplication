@@ -5,5 +5,5 @@ import com.example.mysecondapplication.data.repository.Repository
 class GetSelectedNutritionUseCase(
     private val repository: Repository
 ) {
-    suspend operator fun invoke(title: String) = repository.getSelectedNutrition(title)
+    suspend operator fun invoke(id: Int) = repository.getSelectedNutrition(id)
 }

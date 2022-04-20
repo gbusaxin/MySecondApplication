@@ -12,20 +12,23 @@ interface FeaturedRepository {
 
     suspend fun getAllMotivations(): Flow<List<Motivation>>
 
-    suspend fun getSelectedMotivation(author: String): Motivation
+    suspend fun getSelectedMotivation(id: Int): Motivation
 
     //Training
     suspend fun loadAllTrainings()
 
     suspend fun getAllTrainings(): Flow<List<Training>>
 
-    suspend fun getSelectedTraining(trainer: String): Training
+    suspend fun getSelectedTraining(id: Int): Training
 
     //Nutrition
     suspend fun loadAllNutrition()
 
     suspend fun getAllNutrition(): Flow<List<Nutrition>>
 
-    suspend fun getSelectedNutrition(title: String): Nutrition
+    suspend fun getSelectedNutrition(id: Int): Nutrition
+
+    //delete
+    suspend fun deleteAllFeatured()
 
 }

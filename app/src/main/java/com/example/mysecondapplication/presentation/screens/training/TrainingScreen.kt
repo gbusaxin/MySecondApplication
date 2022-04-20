@@ -41,7 +41,7 @@ fun TrainingScreen(
         ) {
             items(
                 items = list,
-                key = { training -> training.trainer }
+                key = { training -> training.id }
             ) {
                 it?.let { training ->
                     FeaturedItemContainer(
@@ -51,7 +51,7 @@ fun TrainingScreen(
                         description = training.aboutTrainer,
                         lightColor = Yellow1,
                         darkColor = Yellow2,
-                        route = Screens.Training.route
+                        route = Screens.TrainingDetail.passDetail(it.id)
                     )
                 }
             }

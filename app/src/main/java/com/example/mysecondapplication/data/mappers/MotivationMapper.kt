@@ -8,12 +8,14 @@ import javax.inject.Inject
 class MotivationMapper @Inject constructor() {
 
     fun mapDbModelToEntity(dbModel: MotivationDbModel) = Motivation(
+        id = dbModel.id,
         author = dbModel.author,
         image = dbModel.image,
         message = dbModel.message
     )
 
     fun mapDtoToDbModel(dto: MotivationDto) = MotivationDbModel(
+        id = 0,
         author = dto.author ?: "",
         image = dto.image ?: "",
         message = dto.message ?: ""

@@ -7,6 +7,7 @@ import javax.inject.Inject
 
 class NutritionMapper @Inject constructor() {
     fun mapDbModelToEntity(dbModel: NutritionDbModel) = Nutrition(
+        id = dbModel.id,
         title = dbModel.title,
         shortDesc = dbModel.shortDesc,
         backgroundImage = dbModel.backgroundImage,
@@ -15,6 +16,7 @@ class NutritionMapper @Inject constructor() {
     )
 
     fun mapDtoToDbModel(dto: NutritionDto) = NutritionDbModel(
+        id = 0,
         title = dto.title ?: "",
         shortDesc = dto.shortDesc ?: "",
         backgroundImage = dto.backgroundImage ?: "",

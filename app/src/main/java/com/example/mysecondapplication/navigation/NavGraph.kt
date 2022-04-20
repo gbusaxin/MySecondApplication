@@ -12,11 +12,14 @@ import coil.annotation.ExperimentalCoilApi
 import com.example.mysecondapplication.presentation.screens.chrome.ChromeScreen
 import com.example.mysecondapplication.presentation.screens.home.HomeScreen
 import com.example.mysecondapplication.presentation.screens.motivation.MotivationScreen
+import com.example.mysecondapplication.presentation.screens.motivation.detail.MotivationDetailScreen
 import com.example.mysecondapplication.presentation.screens.news.NewsScreen
 import com.example.mysecondapplication.presentation.screens.news.detail.NewsDetailScreen
 import com.example.mysecondapplication.presentation.screens.nutrition.NutritionScreen
+import com.example.mysecondapplication.presentation.screens.nutrition.detail.NutritionDetailScreen
 import com.example.mysecondapplication.presentation.screens.splash.SplashScreen
 import com.example.mysecondapplication.presentation.screens.training.TrainingScreen
+import com.example.mysecondapplication.presentation.screens.training.detail.TrainingDetailScreen
 import com.example.mysecondapplication.presentation.screens.welcome.WelcomeScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 
@@ -83,6 +86,30 @@ fun SetupNavGraph(
             })
         ) {
             NewsDetailScreen(navController = navController)
+        }
+        composable(
+            route = Screens.TrainingDetail.route,
+            arguments = listOf(navArgument(ARGUMENT_TRAINING_DETAIL_KEY) {
+                type = NavType.IntType
+            })
+        ) {
+            TrainingDetailScreen(navController = navController)
+        }
+        composable(
+            route = Screens.MotivationDetail.route,
+            arguments = listOf(navArgument(ARGUMENT_MOTIVATION_DETAIL_KEY) {
+                type = NavType.IntType
+            })
+        ) {
+            MotivationDetailScreen(navController = navController)
+        }
+        composable(
+            route = Screens.NutritionDetail.route,
+            arguments = listOf(navArgument(ARGUMENT_NUTRITION_DETAIL_KEY) {
+                type = NavType.IntType
+            })
+        ) {
+            NutritionDetailScreen(navController = navController)
         }
     }
 }
